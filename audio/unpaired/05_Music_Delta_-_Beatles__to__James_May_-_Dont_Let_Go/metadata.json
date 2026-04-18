@@ -1,0 +1,76 @@
+{
+  "orig": "Music Delta - Beatles",
+  "target": "James May - Dont Let Go",
+  "baseline_cos": 0.5826,
+  "new_cos": 0.9111,
+  "improvement": 0.3285,
+  "fx_chain": {
+    "stems": {
+      "vocals": {
+        "fx_chain": [
+          {
+            "effect": "sox_loudness",
+            "params": {
+              "gain_db": -9.8,
+              "reference_level": 56.5
+            }
+          }
+        ]
+      },
+      "bass": {
+        "fx_chain": [
+          {
+            "effect": "sci_cheby2_lowpass",
+            "params": {
+              "order": 4.0,
+              "attenuation": 24.8,
+              "cutoff": 2001.084376532169
+            }
+          }
+        ]
+      },
+      "drums": {
+        "fx_chain": [
+          {
+            "effect": "am_bandstop_filter",
+            "params": {
+              "center_freq": 2263.9367646546916,
+              "bandwidth_fraction": 0.7533000000000001,
+              "rolloff": 10.5
+            }
+          },
+          {
+            "effect": "am_gain_transition",
+            "params": {
+              "gain_db": -12.299999999999999,
+              "duration": 5.362
+            }
+          }
+        ]
+      },
+      "other": {
+        "fx_chain": [
+          {
+            "effect": "ta_riaa_biquad",
+            "params": {}
+          },
+          {
+            "effect": "am_lowpass_filter",
+            "params": {
+              "cutoff_freq": 175.4082675642691,
+              "rolloff": 6.54
+            }
+          },
+          {
+            "effect": "ta_riaa_biquad",
+            "params": {}
+          },
+          {
+            "effect": "sox_oops",
+            "params": {}
+          }
+        ]
+      }
+    }
+  }
+}

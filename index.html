@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mixing Style Transfer — Supplementary Audio</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         max-width: 1200px; margin: 0 auto; padding: 20px 16px; color: #222; line-height: 1.5; }
+  h1 { font-size: 1.5em; margin-bottom: 4px; }
+  h2 { font-size: 1.2em; margin-top: 30px; margin-bottom: 10px; border-bottom: 2px solid #333; padding-bottom: 4px; }
+  .subtitle { color: #666; font-size: 0.92em; margin-bottom: 16px; }
+  .note { background: #f5f5f5; border-left: 3px solid #999; padding: 8px 12px; margin: 10px 0; font-size: 0.88em; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
+  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+
+  .card { border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; background: #fafafa; }
+  .card-title { font-weight: 700; font-size: 0.95em; margin-bottom: 6px; color: #333; }
+  .card table { width: 100%; border-collapse: collapse; }
+  .card td { padding: 3px 6px; font-size: 0.85em; vertical-align: middle; }
+  .card td:first-child { font-weight: 600; white-space: nowrap; width: 120px; color: #555; }
+  .card audio { width: 100%; height: 30px; }
+
+  .pair-card { border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; background: #fafafa; }
+  .pair-card .pair-title { font-weight: 700; font-size: 0.95em; margin-bottom: 8px; color: #333; }
+  .pair-card .direction { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 6px; }
+  .pair-card .dir-block { }
+  .pair-card .dir-label { font-weight: 600; font-size: 0.85em; color: #444; margin-bottom: 4px; }
+  .pair-card table { width: 100%; border-collapse: collapse; }
+  .pair-card td { padding: 2px 4px; font-size: 0.82em; vertical-align: middle; }
+  .pair-card td:first-child { font-weight: 600; white-space: nowrap; width: 100px; color: #555; }
+  .pair-card audio { width: 100%; height: 28px; }
+  @media (max-width: 800px) { .pair-card .direction { grid-template-columns: 1fr; } }
+
+  .footer { margin-top: 36px; padding-top: 12px; border-top: 1px solid #ddd; font-size: 0.82em; color: #888; }
+</style>
+</head>
+<body>
+
+<h1>Mixing Style Transfer with FX Chain Prediction</h1>
+<p class="subtitle">Supplementary audio examples</p>
+
+<div class="note">
+  <b>Headphones recommended.</b> All audio loudness-normalized to &minus;23 LUFS.
+</div>
+
+<h2>1. Paired Style Transfer (Same Content, Different Mix)</h2>
+<div class="note">
+  <b>Reference</b> = target mix &nbsp;|&nbsp;
+  <b>Original</b> = input (no processing) &nbsp;|&nbsp;
+  <b>StemFX free</b> = ours (Sec. 4.3) &nbsp;|&nbsp;
+  <b>StemFX forced</b> = ours, fixed chain (Sec. 4.3) &nbsp;|&nbsp;
+  <b>ITO + AFx-Rep</b> / <b>ITO + BSFiLM</b> = CMA-ES baselines (Sec. 4.3)
+</div>
+<div class="grid" id="paired-grid"></div>
+
+<h2>2. Unpaired Style Transfer (Different Content)</h2>
+<div class="note">
+  Cross-song transfer: different songs, bidirectional (A&rarr;B and B&rarr;A).
+  <b>Original</b> = source song &nbsp;|&nbsp;
+  <b>Target</b> = style reference &nbsp;|&nbsp;
+  <b>StemFX</b> = ours &nbsp;|&nbsp;
+  <b>ITO + AFx-Rep</b> / <b>ITO + BSFiLM</b> = baselines.
+</div>
+<div class="grid" id="unpaired-grid"></div>
+
+<div class="footer">Submitted to ISMIR 2026. Audio samples for review purposes only.</div>
+
+<script>
+const N_PAIRED = 10;
+const pairedConds = [
+  ["reference.mp3",  "Reference"],
+  ["original.mp3",   "Original"],
+  ["fx_free.mp3",    "StemFX free"],
+  ["fx_forced.mp3",  "StemFX forced"],
+  ["ito_afxrep.mp3", "ITO + AFx-Rep"],
+  ["ito_ours.mp3",   "ITO + BSFiLM"],
+];
+
+const unpairedData = [
+  {id: 1,
+   dirFwd: "01_Grants_-_PunchDrunk__to__North_To_Alaska_-_All_The_Same",
+   dirInv: "02_North_To_Alaska_-_All_The_Same__to__Grants_-_PunchDrunk"},
+  {id: 2,
+   dirFwd: "03_Clara_Berry_And_Wooldog_-_Waltz_For_My_Victims__to__Music_Delta_-_80s_Rock",
+   dirInv: "04_Music_Delta_-_80s_Rock__to__Clara_Berry_And_Wooldog_-_Waltz_For_My_Victims"},
+  {id: 3,
+   dirFwd: "05_Music_Delta_-_Beatles__to__James_May_-_Dont_Let_Go",
+   dirInv: "06_James_May_-_Dont_Let_Go__to__Music_Delta_-_Beatles"},
+  {id: 4,
+   dirFwd: "07_Clara_Berry_And_Wooldog_-_Stella__to__Black_Bloc_-_If_You_Want_Success",
+   dirInv: "08_Black_Bloc_-_If_You_Want_Success__to__Clara_Berry_And_Wooldog_-_Stella"},
+  {id: 5,
+   dirFwd: "09_Snowmine_-_Curfews__to__Alexander_Ross_-_Goodbye_Bolero",
+   dirInv: "10_Alexander_Ross_-_Goodbye_Bolero__to__Snowmine_-_Curfews"},
+];
+
+const unpairedConds = [
+  ["original.mp3",               "Original"],
+  ["target.mp3",                 "Target"],
+  ["transferred.mp3",           "StemFX"],
+  ["transferred_ito_afxrep.mp3","ITO + AFx-Rep"],
+  ["transferred_ito_ours.mp3",  "ITO + BSFiLM"],
+];
+
+function audioTable(base, conds) {
+  let h = '<table>';
+  for (const [file, label] of conds) {
+    h += `<tr><td>${label}</td><td><audio controls preload="none" src="${base}/${file}"></audio></td></tr>`;
+  }
+  return h + '</table>';
+}
+
+// Paired
+const pg = document.getElementById('paired-grid');
+for (let i = 1; i <= N_PAIRED; i++) {
+  const id = String(i).padStart(2, '0');
+  pg.innerHTML += `<div class="card">
+    <div class="card-title">Example ${i}</div>
+    ${audioTable('audio/paired/' + id, pairedConds)}
+  </div>`;
+}
+
+// Unpaired
+const ug = document.getElementById('unpaired-grid');
+for (const p of unpairedData) {
+  ug.innerHTML += `<div class="pair-card">
+    <div class="pair-title">Pair ${p.id}</div>
+    <div class="direction">
+      <div class="dir-block">
+        <div class="dir-label">A &rarr; B</div>
+        ${audioTable('audio/unpaired/' + p.dirFwd, unpairedConds)}
+      </div>
+      <div class="dir-block">
+        <div class="dir-label">B &rarr; A</div>
+        ${audioTable('audio/unpaired/' + p.dirInv, unpairedConds)}
+      </div>
+    </div>
+  </div>`;
+}
+</script>
+</body>
+</html>

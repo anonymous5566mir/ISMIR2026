@@ -1,0 +1,128 @@
+{
+  "orig": "James May - Dont Let Go",
+  "target": "Music Delta - Beatles",
+  "baseline_cos": 0.5826,
+  "new_cos": 0.876,
+  "improvement": 0.2934,
+  "fx_chain": {
+    "stems": {
+      "vocals": {
+        "fx_chain": [
+          {
+            "effect": "sci_fir_highpass",
+            "params": {
+              "numtaps": 181.08,
+              "cutoff": 120.51191721487154
+            }
+          },
+          {
+            "effect": "sox_contrast",
+            "params": {
+              "amount": 59.50000000000001
+            }
+          },
+          {
+            "effect": "sox_lowpass",
+            "params": {
+              "frequency": 4902.299922049408,
+              "width_q": 0.56
+            }
+          }
+        ]
+      },
+      "bass": {
+        "fx_chain": [
+          {
+            "effect": "ta_equalizer_biquad",
+            "params": {
+              "center_freq": 6255.894013700648,
+              "gain_db": 12.900000000000002,
+              "Q": 2.6149999999999998
+            }
+          }
+        ]
+      },
+      "drums": {
+        "fx_chain": [
+          {
+            "effect": "ta_lowpass_biquad",
+            "params": {
+              "cutoff_freq": 2001.084376532169,
+              "Q": 1.865
+            }
+          },
+          {
+            "effect": "sox_compand",
+            "params": {
+              "attack_time": 0.09901,
+              "decay_time": 0.3169,
+              "soft_knee_db": 3.7199999999999998
+            }
+          },
+          {
+            "effect": "am_low_shelf_filter",
+            "params": {
+              "center_freq": 3828.5038790462463,
+              "gain_db": -6.84,
+              "q": 0.28879
+            }
+          },
+          {
+            "effect": "sox_compand",
+            "params": {
+              "attack_time": 0.00694,
+              "decay_time": 0.8812,
+              "soft_knee_db": 4.92
+            }
+          },
+          {
+            "effect": "ta_allpass_biquad",
+            "params": {
+              "central_freq": 148.34677140090605,
+              "Q": 3.7399999999999998
+            }
+          },
+          {
+            "effect": "sox_compand",
+            "params": {
+              "attack_time": 0.00199,
+              "decay_time": 0.8812,
+              "soft_knee_db": 4.92
+            }
+          },
+          {
+            "effect": "ta_allpass_biquad",
+            "params": {
+              "central_freq": 148.34677140090605,
+              "Q": 3.7399999999999998
+            }
+          },
+          {
+            "effect": "sox_oops",
+            "params": {}
+          }
+        ]
+      },
+      "other": {
+        "fx_chain": [
+          {
+            "effect": "sci_butter_bandpass",
+            "params": {
+              "order": 3.0,
+              "low_freq": 476.9510376875236,
+              "high_freq": 8791.8931154089
+            }
+          },
+          {
+            "effect": "sox_compand",
+            "params": {
+              "attack_time": 0.01585,
+              "decay_time": 0.6337,
+              "soft_knee_db": 10.32
+            }
+          }
+        ]
+      }
+    }
+  }
+}
