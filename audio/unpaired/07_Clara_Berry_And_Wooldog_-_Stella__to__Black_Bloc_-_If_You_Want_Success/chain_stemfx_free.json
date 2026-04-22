@@ -1,0 +1,77 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "sox_bandpass",
+          "params": {
+            "frequency": 675.6313495618041,
+            "width_q": 0.6799999999999999
+          }
+        },
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.011890000000000001,
+            "decay_time": 0.2278,
+            "soft_knee_db": 9.72
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "ta_highpass_biquad",
+          "params": {
+            "cutoff_freq": 209.42570961017998,
+            "Q": 1.6400000000000001
+          }
+        },
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.049510000000000005,
+            "decay_time": 0.8119000000000001,
+            "soft_knee_db": 9.72
+          }
+        },
+        {
+          "effect": "sox_deemph",
+          "params": {}
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "ta_riaa_biquad",
+          "params": {}
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "ta_bandpass_biquad",
+          "params": {
+            "central_freq": 4952.473816471404,
+            "Q": 3.785
+          }
+        },
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.01684,
+            "decay_time": 0.6337,
+            "soft_knee_db": 1.92
+          }
+        }
+      ]
+    }
+  },
+  "orig": "Clara Berry And Wooldog - Stella",
+  "target": "Black Bloc - If You Want Success",
+  "baseline_cos": 0.5777,
+  "new_cos": 0.8945
+}

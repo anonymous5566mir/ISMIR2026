@@ -1,0 +1,60 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "sox_bandreject",
+          "params": {
+            "frequency": 2847.824286606655,
+            "width_q": 1.49
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "am_lowpass_filter",
+          "params": {
+            "cutoff_freq": 259.38631518840543,
+            "rolloff": 14.64
+          }
+        },
+        {
+          "effect": "npy_lr_pan",
+          "params": {
+            "pan": 0.78
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "am_low_shelf_filter",
+          "params": {
+            "center_freq": 1459.9880272090845,
+            "gain_db": -10.440000000000001,
+            "q": 0.7652599999999999
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "sci_cheby2_lowpass",
+          "params": {
+            "order": 5.0,
+            "attenuation": 59.6,
+            "cutoff": 1944.0734812409034
+          }
+        }
+      ]
+    }
+  },
+  "orig": "Music Delta - 80s Rock",
+  "target": "Clara Berry And Wooldog - Waltz For My Victims",
+  "baseline_cos": 0.5816,
+  "new_cos": 0.8825
+}

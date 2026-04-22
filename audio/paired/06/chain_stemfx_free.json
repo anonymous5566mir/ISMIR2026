@@ -1,0 +1,49 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "am_low_shelf_filter",
+          "params": {
+            "center_freq": 634.9831439241301,
+            "gain_db": 14.04,
+            "q": 0.18091000000000002
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "am_tanh_distortion",
+          "params": {
+            "distortion": 0.1963
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 961.3108568615818,
+            "gain_db": 20.160000000000004,
+            "q": 3.335
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "ta_bandreject_biquad",
+          "params": {
+            "central_freq": 1762.9719016663514,
+            "Q": 2.93
+          }
+        }
+      ]
+    }
+  }
+}

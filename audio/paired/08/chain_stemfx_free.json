@@ -1,0 +1,55 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "sci_fir_highpass",
+          "params": {
+            "numtaps": 181.08,
+            "cutoff": 458.1735305535549
+          }
+        },
+        {
+          "effect": "sox_overdrive",
+          "params": {
+            "gain_db": 17.95,
+            "colour": 81.0
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "am_tanh_distortion",
+          "params": {
+            "distortion": 0.1963
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.00397,
+            "decay_time": 0.9901,
+            "soft_knee_db": 10.56
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "sox_highpass",
+          "params": {
+            "frequency": 796.2143411069947,
+            "width_q": 1.73
+          }
+        }
+      ]
+    }
+  }
+}

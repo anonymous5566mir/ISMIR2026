@@ -1,0 +1,62 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "sci_butter_bandpass",
+          "params": {
+            "order": 2.0,
+            "low_freq": 551.2912486152176,
+            "high_freq": 3627.8464514424586
+          }
+        },
+        {
+          "effect": "ta_overdrive",
+          "params": {
+            "gain": 19.85,
+            "colour": 26.75
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "am_clipping_distortion",
+          "params": {
+            "percentile_threshold": 20.4
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "ta_contrast",
+          "params": {
+            "enhancement_amount": 95.5
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "sci_butter_bandpass",
+          "params": {
+            "order": 2.0,
+            "low_freq": 476.9510376875236,
+            "high_freq": 2274.8229235120566
+          }
+        },
+        {
+          "effect": "sox_overdrive",
+          "params": {
+            "gain_db": 12.35,
+            "colour": 16.0
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "ta_treble_biquad",
+          "params": {
+            "gain_db": 10.559999999999999,
+            "central_freq": 3347.344391583435,
+            "Q": 1.46
+          }
+        },
+        {
+          "effect": "am_gain_transition",
+          "params": {
+            "gain_db": -4.800000000000001,
+            "duration": 3.158
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "am_bandstop_filter",
+          "params": {
+            "center_freq": 332.8166883766061,
+            "bandwidth_fraction": 0.6341,
+            "rolloff": 16.799999999999997
+          }
+        },
+        {
+          "effect": "sox_earwax",
+          "params": {}
+        },
+        {
+          "effect": "sci_cheby1_lowpass",
+          "params": {
+            "order": 3.0,
+            "ripple": 2.8000000000000003,
+            "cutoff": 1414.5968954200941
+          }
+        },
+        {
+          "effect": "ta_riaa_biquad",
+          "params": {}
+        },
+        {
+          "effect": "am_low_shelf_filter",
+          "params": {
+            "center_freq": 2165.845101204456,
+            "gain_db": -15.84,
+            "q": 0.28879
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "sci_fir_highpass",
+          "params": {
+            "numtaps": 176.6,
+            "cutoff": 25.17850823588334
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "sci_cheby2_lowpass",
+          "params": {
+            "order": 4.0,
+            "attenuation": 52.400000000000006,
+            "cutoff": 2671.730521041294
+          }
+        },
+        {
+          "effect": "ta_riaa_biquad",
+          "params": {}
+        }
+      ]
+    }
+  },
+  "orig": "Black Bloc - If You Want Success",
+  "target": "Clara Berry And Wooldog - Stella",
+  "baseline_cos": 0.5777,
+  "new_cos": 0.8759
+}

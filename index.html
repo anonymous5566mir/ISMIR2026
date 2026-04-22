@@ -7,32 +7,82 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-         max-width: 1200px; margin: 0 auto; padding: 20px 16px; color: #222; line-height: 1.5; }
+         max-width: 1400px; margin: 0 auto; padding: 20px 16px; color: #222; line-height: 1.5; }
   h1 { font-size: 1.5em; margin-bottom: 4px; }
   h2 { font-size: 1.2em; margin-top: 30px; margin-bottom: 10px; border-bottom: 2px solid #333; padding-bottom: 4px; }
   .subtitle { color: #666; font-size: 0.92em; margin-bottom: 16px; }
-  .note { background: #f5f5f5; border-left: 3px solid #999; padding: 8px 12px; margin: 10px 0; font-size: 0.88em; }
+  .note { background: #f5f5f5; border-left: 3px solid #999; padding: 8px 12px; margin: 10px 0; font-size: 0.85em; }
 
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
-  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+  /* Paired: 2-col grid */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  @media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
 
+  /* Cards */
   .card { border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; background: #fafafa; }
-  .card-title { font-weight: 700; font-size: 0.95em; margin-bottom: 6px; color: #333; }
+  .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .card-title { font-weight: 700; font-size: 0.95em; color: #333; }
   .card table { width: 100%; border-collapse: collapse; }
-  .card td { padding: 3px 6px; font-size: 0.85em; vertical-align: middle; }
-  .card td:first-child { font-weight: 600; white-space: nowrap; width: 120px; color: #555; }
+  .card td { padding: 3px 6px; font-size: 0.84em; vertical-align: middle; }
+  .card td:first-child { font-weight: 600; white-space: nowrap; width: 115px; color: #555; }
   .card audio { width: 100%; height: 30px; }
 
-  .pair-card { border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; background: #fafafa; }
-  .pair-card .pair-title { font-weight: 700; font-size: 0.95em; margin-bottom: 8px; color: #333; }
-  .pair-card .direction { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 6px; }
-  .pair-card .dir-block { }
-  .pair-card .dir-label { font-weight: 600; font-size: 0.85em; color: #444; margin-bottom: 4px; }
-  .pair-card table { width: 100%; border-collapse: collapse; }
-  .pair-card td { padding: 2px 4px; font-size: 0.82em; vertical-align: middle; }
-  .pair-card td:first-child { font-weight: 600; white-space: nowrap; width: 100px; color: #555; }
-  .pair-card audio { width: 100%; height: 28px; }
-  @media (max-width: 800px) { .pair-card .direction { grid-template-columns: 1fr; } }
+  /* Unpaired: full-width rows */
+  .pair-row { border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; background: #fafafa; margin-top: 12px; }
+  .pair-row-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .pair-row-title { font-weight: 700; font-size: 0.95em; color: #333; }
+  .pair-row .directions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .dir-block {}
+  .dir-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .dir-label { font-weight: 600; font-size: 0.85em; color: #444; }
+  .dir-block table { width: 100%; border-collapse: collapse; }
+  .dir-block td { padding: 2px 4px; font-size: 0.82em; vertical-align: middle; }
+  .dir-block td:first-child { font-weight: 600; white-space: nowrap; width: 105px; color: #555; }
+  .dir-block audio { width: 100%; height: 28px; }
+  @media (max-width: 900px) { .pair-row .directions { grid-template-columns: 1fr; } }
+
+  /* Chain toggle button */
+  .chain-btn { font-size: 0.78em; padding: 3px 8px; cursor: pointer; border: 1px solid #aaa;
+               border-radius: 3px; background: #fff; color: #555; white-space: nowrap; }
+  .chain-btn:hover { background: #eee; }
+
+  /* Chain panel */
+  .chain-panel { display: none; margin-top: 8px; border-top: 1px solid #ddd; padding-top: 8px; }
+  .chain-panel.open { display: block; }
+  .method-tabs { display: flex; gap: 4px; margin-bottom: 6px; flex-wrap: wrap; }
+  .method-tab { font-size: 0.78em; padding: 3px 8px; cursor: pointer; border: 1px solid #ccc;
+                border-radius: 3px; background: #f0f0f0; color: #444; }
+  .method-tab.active { background: #333; color: #fff; border-color: #333; }
+  .method-tab:hover { background: #ddd; }
+  .method-tab.active:hover { background: #555; }
+
+  /* Signal chain diagram */
+  .chain-diagram { display: none; overflow-x: auto; padding: 6px 0; }
+  .chain-diagram.active { display: block; }
+  .stem-row { display: flex; align-items: center; margin-bottom: 4px; }
+  .stem-label { font-weight: 700; font-size: 0.75em; width: 55px; color: #666; flex-shrink: 0; }
+  .blocks { display: flex; gap: 3px; flex-wrap: wrap; }
+  .fx-block { display: inline-block; padding: 3px 7px; border-radius: 3px; font-size: 0.72em;
+              font-weight: 600; cursor: default; position: relative; white-space: nowrap; }
+  .fx-block.eq { background: #dbeafe; color: #1e40af; border: 1px solid #93bbfd; }
+  .fx-block.dynamics { background: #fef3c7; color: #92400e; border: 1px solid #fbbf24; }
+  .fx-block.distortion { background: #fecaca; color: #991b1b; border: 1px solid #f87171; }
+  .fx-block.modulation { background: #e0e7ff; color: #3730a3; border: 1px solid #a5b4fc; }
+  .fx-block.delay { background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+  .fx-block.reverb { background: #ede9fe; color: #5b21b6; border: 1px solid #c4b5fd; }
+  .fx-block.stereo { background: #fce7f3; color: #9d174d; border: 1px solid #f9a8d4; }
+  .fx-block.spectral { background: #e0f2fe; color: #0c4a6e; border: 1px solid #7dd3fc; }
+  .fx-block.noise { background: #f3f4f6; color: #374151; border: 1px solid #9ca3af; }
+  .fx-block.other { background: #f3f4f6; color: #374151; border: 1px solid #9ca3af; }
+  .fx-block.pitch { background: #fff7ed; color: #9a3412; border: 1px solid #fdba74; }
+  .fx-block.time { background: #fff7ed; color: #9a3412; border: 1px solid #fdba74; }
+  .no-fx { font-size: 0.72em; color: #999; font-style: italic; }
+
+  /* Tooltip */
+  .fx-tooltip { display: none; position: absolute; left: 0; top: 100%; z-index: 10;
+                background: #222; color: #eee; padding: 6px 10px; border-radius: 4px;
+                font-size: 0.82em; font-weight: 400; white-space: pre; min-width: 180px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3); pointer-events: none; }
+  .fx-block:hover .fx-tooltip { display: block; }
 
   .footer { margin-top: 36px; padding-top: 12px; border-top: 1px solid #ddd; font-size: 0.82em; color: #888; }
 </style>
@@ -41,104 +91,231 @@
 
 <h1>Mixing Style Transfer with FX Chain Prediction</h1>
 <p class="subtitle">Supplementary audio examples</p>
-
 <div class="note">
   <b>Headphones recommended.</b> All audio loudness-normalized to &minus;23 LUFS.
+  Click <b>Show Chain</b> to inspect the predicted signal chain for each method.
 </div>
 
 <h2>1. Paired Style Transfer (Same Content, Different Mix)</h2>
 <div class="note">
   <b>Reference</b> = target mix &nbsp;|&nbsp;
-  <b>Original</b> = input (no processing) &nbsp;|&nbsp;
-  <b>StemFX free</b> = ours (Sec. 4.3) &nbsp;|&nbsp;
-  <b>StemFX forced</b> = ours, fixed chain (Sec. 4.3) &nbsp;|&nbsp;
-  <b>ITO + AFx-Rep</b> / <b>ITO + BSFiLM</b> = CMA-ES baselines (Sec. 4.3)
+  <b>Original</b> = input &nbsp;|&nbsp;
+  <b>StemFX free</b> = ours &nbsp;|&nbsp;
+  <b>StemFX forced</b> = ours, fixed chain &nbsp;|&nbsp;
+  <b>ITO + AFx-Rep</b> / <b>ITO + BSFiLM</b> = CMA-ES baselines
 </div>
-<div class="grid" id="paired-grid"></div>
+<div class="grid2" id="paired-grid"></div>
 
 <h2>2. Unpaired Style Transfer (Different Content)</h2>
 <div class="note">
-  Cross-song transfer: different songs, bidirectional (A&rarr;B and B&rarr;A).
-  <b>Original</b> = source song &nbsp;|&nbsp;
-  <b>Target</b> = style reference &nbsp;|&nbsp;
+  Cross-song transfer, bidirectional (A&rarr;B and B&rarr;A).
   <b>StemFX</b> = ours &nbsp;|&nbsp;
   <b>ITO + AFx-Rep</b> / <b>ITO + BSFiLM</b> = baselines.
 </div>
-<div class="grid" id="unpaired-grid"></div>
+<div id="unpaired-grid"></div>
 
 <div class="footer">Submitted to ISMIR 2026. Audio samples for review purposes only.</div>
 
 <script>
 const N_PAIRED = 10;
-const pairedConds = [
-  ["reference.mp3",  "Reference"],
-  ["original.mp3",   "Original"],
-  ["fx_free.mp3",    "StemFX free"],
-  ["fx_forced.mp3",  "StemFX forced"],
+const METHODS = [
+  {key: "stemfx_free", label: "StemFX free", chainFile: "chain_stemfx_free.json"},
+  {key: "stemfx_forced", label: "StemFX forced", chainFile: "chain_stemfx_forced.json"},
+  {key: "ito_afxrep", label: "ITO + AFx-Rep", chainFile: "chain_ito_afxrep.json"},
+  {key: "ito_bsfilm", label: "ITO + BSFiLM", chainFile: "chain_ito_bsfilm.json"},
+];
+const STEMS = ["vocals", "bass", "drums", "other"];
+const CAT_MAP = {
+  "EQ": "eq", "DYNAMICS": "dynamics", "DISTORTION": "distortion", "MODULATION": "modulation",
+  "DELAY": "delay", "REVERB": "reverb", "STEREO": "stereo", "SPECTRAL": "spectral",
+  "NOISE": "noise", "PITCH": "pitch", "TIME": "time", "OTHER": "other",
+};
+// Simplified category lookup from effect name prefix
+const FX_CATEGORIES = {};
+// We'll populate from loaded chain data dynamically; fallback to "other"
+
+const pairedAudio = [
+  ["target.mp3", "Reference"],
+  ["original.mp3", "Original"],
+  ["stemfx_free.mp3", "StemFX free"],
+  ["stemfx_forced.mp3", "StemFX forced"],
   ["ito_afxrep.mp3", "ITO + AFx-Rep"],
-  ["ito_ours.mp3",   "ITO + BSFiLM"],
+  ["ito_bsfilm.mp3", "ITO + BSFiLM"],
 ];
 
-const unpairedData = [
-  {id: 1,
-   dirFwd: "01_Grants_-_PunchDrunk__to__North_To_Alaska_-_All_The_Same",
-   dirInv: "02_North_To_Alaska_-_All_The_Same__to__Grants_-_PunchDrunk"},
-  {id: 2,
-   dirFwd: "03_Clara_Berry_And_Wooldog_-_Waltz_For_My_Victims__to__Music_Delta_-_80s_Rock",
-   dirInv: "04_Music_Delta_-_80s_Rock__to__Clara_Berry_And_Wooldog_-_Waltz_For_My_Victims"},
-  {id: 3,
-   dirFwd: "05_Music_Delta_-_Beatles__to__James_May_-_Dont_Let_Go",
-   dirInv: "06_James_May_-_Dont_Let_Go__to__Music_Delta_-_Beatles"},
-  {id: 4,
-   dirFwd: "07_Clara_Berry_And_Wooldog_-_Stella__to__Black_Bloc_-_If_You_Want_Success",
-   dirInv: "08_Black_Bloc_-_If_You_Want_Success__to__Clara_Berry_And_Wooldog_-_Stella"},
-  {id: 5,
-   dirFwd: "09_Snowmine_-_Curfews__to__Alexander_Ross_-_Goodbye_Bolero",
-   dirInv: "10_Alexander_Ross_-_Goodbye_Bolero__to__Snowmine_-_Curfews"},
+const unpairedPairs = [
+  {id:1, fwd:"01_Grants_-_PunchDrunk__to__North_To_Alaska_-_All_The_Same",
+         inv:"02_North_To_Alaska_-_All_The_Same__to__Grants_-_PunchDrunk"},
+  {id:2, fwd:"03_Clara_Berry_And_Wooldog_-_Waltz_For_My_Victims__to__Music_Delta_-_80s_Rock",
+         inv:"04_Music_Delta_-_80s_Rock__to__Clara_Berry_And_Wooldog_-_Waltz_For_My_Victims"},
+  {id:3, fwd:"05_Music_Delta_-_Beatles__to__James_May_-_Dont_Let_Go",
+         inv:"06_James_May_-_Dont_Let_Go__to__Music_Delta_-_Beatles"},
+  {id:4, fwd:"07_Clara_Berry_And_Wooldog_-_Stella__to__Black_Bloc_-_If_You_Want_Success",
+         inv:"08_Black_Bloc_-_If_You_Want_Success__to__Clara_Berry_And_Wooldog_-_Stella"},
+  {id:5, fwd:"09_Snowmine_-_Curfews__to__Alexander_Ross_-_Goodbye_Bolero",
+         inv:"10_Alexander_Ross_-_Goodbye_Bolero__to__Snowmine_-_Curfews"},
 ];
 
-const unpairedConds = [
-  ["original.mp3",               "Original"],
-  ["target.mp3",                 "Target"],
-  ["transferred.mp3",           "StemFX"],
-  ["transferred_ito_afxrep.mp3","ITO + AFx-Rep"],
-  ["transferred_ito_ours.mp3",  "ITO + BSFiLM"],
+const unpairedAudio = [
+  ["original.mp3", "Original"],
+  ["target.mp3", "Target"],
+  ["stemfx_free.mp3", "StemFX"],
+  ["ito_afxrep.mp3", "ITO+AFx-Rep"],
+  ["ito_bsfilm.mp3", "ITO+BSFiLM"],
 ];
+
+function guessCategory(effectName) {
+  const n = effectName.toLowerCase();
+  if (n.includes("highpass") || n.includes("lowpass") || n.includes("bandpass") || n.includes("bandstop") ||
+      n.includes("bandreject") || n.includes("shelf") || n.includes("peaking") || n.includes("equalizer") ||
+      n.includes("bass_biquad") || n.includes("treble") || n.includes("allpass") || n.includes("notch") ||
+      n.includes("peak_iir") || n.includes("fir_") || n.includes("butter") || n.includes("cheby") ||
+      n.includes("bessel") || n.includes("sox_bass") || n.includes("seven_band")) return "eq";
+  if (n.includes("compand") || n.includes("gain") || n.includes("vol") || n.includes("loudness") ||
+      n.includes("contrast") || n.includes("normalize")) return "dynamics";
+  if (n.includes("overdrive") || n.includes("distortion") || n.includes("bit_crush") ||
+      n.includes("clipping") || n.includes("aliasing") || n.includes("tanh")) return "distortion";
+  if (n.includes("chorus") || n.includes("flanger") || n.includes("phaser") || n.includes("tremolo")) return "modulation";
+  if (n.includes("echo") || n.includes("delay")) return "delay";
+  if (n.includes("reverb") || n.includes("air_absorption")) return "reverb";
+  if (n.includes("pan") || n.includes("widener") || n.includes("oops") || n.includes("earwax")) return "stereo";
+  if (n.includes("riaa") || n.includes("deemph") || n.includes("preemph")) return "spectral";
+  if (n.includes("pitch")) return "pitch";
+  if (n.includes("time") || n.includes("tempo") || n.includes("speed")) return "time";
+  if (n.includes("noise")) return "noise";
+  return "other";
+}
+
+function fmtVal(v) {
+  if (typeof v === "number") return Number.isInteger(v) ? v.toString() : v.toFixed(3);
+  return String(v);
+}
+
+function renderChainDiagram(chainData) {
+  const stems = chainData.stems || {};
+  let html = '';
+  for (const sn of STEMS) {
+    const chain = (stems[sn] || {}).fx_chain || [];
+    html += '<div class="stem-row"><div class="stem-label">' + sn + '</div><div class="blocks">';
+    if (chain.length === 0) {
+      html += '<span class="no-fx">(pass-through)</span>';
+    } else {
+      for (const fx of chain) {
+        const cat = guessCategory(fx.effect);
+        const params = fx.params || {};
+        let tip = fx.effect + "\n";
+        for (const [k, v] of Object.entries(params)) {
+          if (k.startsWith("_")) continue;
+          tip += "  " + k + ": " + fmtVal(v) + "\n";
+        }
+        if (Object.keys(params).length === 0) tip += "  (no parameters)\n";
+        // Short display name: strip prefix
+        let short = fx.effect.replace(/^(sox_|am_|ta_|sci_|lib_|pln_|npy_)/, "");
+        html += '<span class="fx-block ' + cat + '">' + short +
+                '<span class="fx-tooltip">' + tip.trim() + '</span></span>';
+      }
+    }
+    html += '</div></div>';
+  }
+  return html;
+}
+
+function makeChainPanel(panelId, basePath) {
+  let html = '<div class="chain-panel" id="' + panelId + '">';
+  html += '<div class="method-tabs" id="tabs-' + panelId + '">';
+  for (const m of METHODS) {
+    html += '<div class="method-tab" data-method="' + m.key + '" data-panel="' + panelId +
+            '" data-url="' + basePath + '/' + m.chainFile + '">' + m.label + '</div>';
+  }
+  html += '</div>';
+  for (const m of METHODS) {
+    html += '<div class="chain-diagram" id="diag-' + panelId + '-' + m.key + '">Loading...</div>';
+  }
+  html += '</div>';
+  return html;
+}
+
+function togglePanel(panelId) {
+  const el = document.getElementById(panelId);
+  el.classList.toggle("open");
+}
+
+// Tab click handler (delegated)
+document.addEventListener("click", async function(e) {
+  const tab = e.target.closest(".method-tab");
+  if (!tab) return;
+  const panel = tab.dataset.panel;
+  const method = tab.dataset.method;
+  const url = tab.dataset.url;
+
+  // Toggle active tab
+  document.querySelectorAll("#tabs-" + panel + " .method-tab").forEach(t => t.classList.remove("active"));
+  tab.classList.add("active");
+
+  // Hide all diagrams, show selected
+  document.querySelectorAll("#" + panel + " .chain-diagram").forEach(d => d.classList.remove("active"));
+  const diag = document.getElementById("diag-" + panel + "-" + method);
+  diag.classList.add("active");
+
+  // Load chain data if not yet loaded
+  if (diag.dataset.loaded !== "1") {
+    try {
+      const resp = await fetch(url);
+      const data = await resp.json();
+      diag.innerHTML = renderChainDiagram(data);
+      diag.dataset.loaded = "1";
+    } catch (err) {
+      diag.innerHTML = '<span style="color:red">Failed to load chain</span>';
+    }
+  }
+});
 
 function audioTable(base, conds) {
   let h = '<table>';
   for (const [file, label] of conds) {
-    h += `<tr><td>${label}</td><td><audio controls preload="none" src="${base}/${file}"></audio></td></tr>`;
+    h += '<tr><td>' + label + '</td><td><audio controls preload="none" src="' + base + '/' + file + '"></audio></td></tr>';
   }
   return h + '</table>';
 }
 
-// Paired
-const pg = document.getElementById('paired-grid');
+// ---- Render Paired ----
+const pg = document.getElementById("paired-grid");
 for (let i = 1; i <= N_PAIRED; i++) {
-  const id = String(i).padStart(2, '0');
-  pg.innerHTML += `<div class="card">
-    <div class="card-title">Example ${i}</div>
-    ${audioTable('audio/paired/' + id, pairedConds)}
-  </div>`;
+  const id = String(i).padStart(2, "0");
+  const base = "audio/paired/" + id;
+  const panelId = "chain-paired-" + id;
+  pg.innerHTML += '<div class="card">' +
+    '<div class="card-header"><span class="card-title">Example ' + i + '</span>' +
+    '<button class="chain-btn" onclick="togglePanel(\'' + panelId + '\')">Show Chain</button></div>' +
+    audioTable(base, pairedAudio) +
+    makeChainPanel(panelId, base) +
+    '</div>';
 }
 
-// Unpaired
-const ug = document.getElementById('unpaired-grid');
-for (const p of unpairedData) {
-  ug.innerHTML += `<div class="pair-card">
-    <div class="pair-title">Pair ${p.id}</div>
-    <div class="direction">
-      <div class="dir-block">
-        <div class="dir-label">A &rarr; B</div>
-        ${audioTable('audio/unpaired/' + p.dirFwd, unpairedConds)}
-      </div>
-      <div class="dir-block">
-        <div class="dir-label">B &rarr; A</div>
-        ${audioTable('audio/unpaired/' + p.dirInv, unpairedConds)}
-      </div>
-    </div>
-  </div>`;
+// ---- Render Unpaired ----
+const ug = document.getElementById("unpaired-grid");
+for (const p of unpairedPairs) {
+  const fBase = "audio/unpaired/" + p.fwd;
+  const iBase = "audio/unpaired/" + p.inv;
+  const fpId = "chain-unpaired-" + p.id + "f";
+  const ipId = "chain-unpaired-" + p.id + "i";
+
+  ug.innerHTML += '<div class="pair-row">' +
+    '<div class="pair-row-header"><span class="pair-row-title">Pair ' + p.id + '</span></div>' +
+    '<div class="directions">' +
+    '<div class="dir-block">' +
+      '<div class="dir-header"><span class="dir-label">A &rarr; B</span>' +
+      '<button class="chain-btn" onclick="togglePanel(\'' + fpId + '\')">Show Chain</button></div>' +
+      audioTable(fBase, unpairedAudio) +
+      makeChainPanel(fpId, fBase) +
+    '</div>' +
+    '<div class="dir-block">' +
+      '<div class="dir-header"><span class="dir-label">B &rarr; A</span>' +
+      '<button class="chain-btn" onclick="togglePanel(\'' + ipId + '\')">Show Chain</button></div>' +
+      audioTable(iBase, unpairedAudio) +
+      makeChainPanel(ipId, iBase) +
+    '</div>' +
+    '</div></div>';
 }
 </script>
 </body>

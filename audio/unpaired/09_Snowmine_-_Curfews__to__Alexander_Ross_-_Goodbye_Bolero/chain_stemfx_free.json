@@ -1,0 +1,96 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "ta_treble_biquad",
+          "params": {
+            "gain_db": 11.759999999999998,
+            "central_freq": 2849.7279149810224,
+            "Q": 1.58
+          }
+        },
+        {
+          "effect": "npy_lr_pan",
+          "params": {
+            "pan": 0.3999999999999999
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "am_gain_transition",
+          "params": {
+            "gain_db": -15.6,
+            "duration": 5.942
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "sox_bandpass",
+          "params": {
+            "frequency": 812.480211728268,
+            "width_q": 0.6799999999999999
+          }
+        },
+        {
+          "effect": "ta_contrast",
+          "params": {
+            "enhancement_amount": 68.5
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "sci_butter_bandstop",
+          "params": {
+            "order": 3.0,
+            "low_freq": 223.85041092886203,
+            "high_freq": 4400.7358151237195
+          }
+        },
+        {
+          "effect": "ta_riaa_biquad",
+          "params": {}
+        },
+        {
+          "effect": "sci_notch_iir",
+          "params": {
+            "freq": 112.62354713978198,
+            "Q": 1.87
+          }
+        },
+        {
+          "effect": "ta_contrast",
+          "params": {
+            "enhancement_amount": 27.1
+          }
+        },
+        {
+          "effect": "ta_bandreject_biquad",
+          "params": {
+            "central_freq": 2847.824286606655,
+            "Q": 0.6799999999999999
+          }
+        },
+        {
+          "effect": "ta_gain",
+          "params": {
+            "gain_db": -5.4
+          }
+        }
+      ]
+    }
+  },
+  "orig": "Snowmine - Curfews",
+  "target": "Alexander Ross - Goodbye Bolero",
+  "baseline_cos": 0.544,
+  "new_cos": 0.8873
+}

@@ -1,0 +1,68 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "ta_highpass_biquad",
+          "params": {
+            "cutoff_freq": 144.88719201499802,
+            "Q": 1.49
+          }
+        },
+        {
+          "effect": "sox_contrast",
+          "params": {
+            "amount": 93.7
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "sox_contrast",
+          "params": {
+            "amount": 29.8
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "am_bit_crush",
+          "params": {
+            "bit_depth": 10.84
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "am_bandstop_filter",
+          "params": {
+            "center_freq": 683.0496826356973,
+            "bandwidth_fraction": 0.6788,
+            "rolloff": 23.82
+          }
+        },
+        {
+          "effect": "am_air_absorption",
+          "params": {
+            "temperature": 16.1,
+            "humidity": 66.6,
+            "distance": 99.1
+          }
+        },
+        {
+          "effect": "ta_highpass_biquad",
+          "params": {
+            "cutoff_freq": 190.99851720428717,
+            "Q": 0.8
+          }
+        }
+      ]
+    }
+  }
+}

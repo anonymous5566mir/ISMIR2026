@@ -1,0 +1,516 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "sox_gain",
+          "params": {
+            "gain_db": -4.3387721594426765
+          }
+        },
+        {
+          "effect": "sox_highpass",
+          "params": {
+            "frequency": 22.90065719042257,
+            "width_q": 0.7559789959762164
+          }
+        },
+        {
+          "effect": "sox_lowpass",
+          "params": {
+            "frequency": 17980.406470461163,
+            "width_q": 0.5620663633768141
+          }
+        },
+        {
+          "effect": "am_low_shelf_filter",
+          "params": {
+            "center_freq": 223.58851819938454,
+            "gain_db": -0.08217852175347318,
+            "q": 0.2615285466713517
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 1054.898500042278,
+            "gain_db": -19.457239117005823,
+            "q": 4.735312093988836
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 223.4823332236944,
+            "gain_db": -15.965720620554873,
+            "q": 4.2347800352883995
+          }
+        },
+        {
+          "effect": "am_high_shelf_filter",
+          "params": {
+            "center_freq": 314.588757818704,
+            "gain_db": -16.7238196976166,
+            "q": 0.15971940438425072
+          }
+        },
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.03252640122170893,
+            "decay_time": 0.7645365330926117,
+            "soft_knee_db": 4.4240723557325285,
+            "_mix": 0.9476369843250054
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 7172.783104513666,
+            "gain_db": -0.48754476420631576,
+            "q": 2.7841033284364185
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 50.98537183846934,
+            "gain_db": -9.520168088945919,
+            "q": 1.7278163977339842
+          }
+        },
+        {
+          "effect": "sox_overdrive",
+          "params": {
+            "gain_db": 12.929826929667946,
+            "colour": 25.998543219472538
+          }
+        },
+        {
+          "effect": "sox_chorus",
+          "params": {
+            "gain_in": 0.8999508599762871,
+            "gain_out": 0.5079295109346411,
+            "delay_ms": 66.90800161639297,
+            "decay": 0.10568846374419268,
+            "speed": 0.5304378237120937,
+            "depth": 0.505487491754204,
+            "_mix": 0.5191228984035956
+          }
+        },
+        {
+          "effect": "sox_echo",
+          "params": {
+            "gain_in": 0.6950299884609173,
+            "gain_out": 0.5011338597875483,
+            "delay_ms": 175.21294730621736,
+            "decay": 0.4217014277328959,
+            "_mix": 0.956385452919231
+          }
+        },
+        {
+          "effect": "sox_reverb",
+          "params": {
+            "reverberance": 18.572313838242813,
+            "high_freq_damping": 84.8150772386205,
+            "room_scale": 99.42182911656266,
+            "stereo_depth": 39.78692452625271,
+            "pre_delay": 42.1152119332096,
+            "wet_gain": -1.6825463028867205
+          }
+        },
+        {
+          "effect": "sox_gain",
+          "params": {
+            "gain_db": -3.7309889663844897
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "sox_gain",
+          "params": {
+            "gain_db": -4.320921871465709
+          }
+        },
+        {
+          "effect": "sox_highpass",
+          "params": {
+            "frequency": 169.6642637556665,
+            "width_q": 0.6316927550983306
+          }
+        },
+        {
+          "effect": "sox_lowpass",
+          "params": {
+            "frequency": 1348.4116480771781,
+            "width_q": 0.5832618442788904
+          }
+        },
+        {
+          "effect": "am_low_shelf_filter",
+          "params": {
+            "center_freq": 1520.6939788913714,
+            "gain_db": 0.19560636836339995,
+            "q": 0.1897431060198258
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 149.69591250947434,
+            "gain_db": 15.708756376097845,
+            "q": 3.8536481167681136
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 511.911978027461,
+            "gain_db": 5.338860772318824,
+            "q": 3.1861616608585424
+          }
+        },
+        {
+          "effect": "am_high_shelf_filter",
+          "params": {
+            "center_freq": 5053.941815246923,
+            "gain_db": 8.84287135254472,
+            "q": 0.6502471381879927
+          }
+        },
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.02112741701900519,
+            "decay_time": 0.6318248664478584,
+            "soft_knee_db": 3.660937669823495,
+            "_mix": 0.18849623181668493
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 3020.389513485357,
+            "gain_db": 14.83594098843777,
+            "q": 1.4782804222386734
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 381.32740287162164,
+            "gain_db": -11.254124386631117,
+            "q": 0.6852505290778337
+          }
+        },
+        {
+          "effect": "sox_overdrive",
+          "params": {
+            "gain_db": 0.11101724516134703,
+            "colour": 42.36499312467645
+          }
+        },
+        {
+          "effect": "sox_chorus",
+          "params": {
+            "gain_in": 0.7985297925297354,
+            "gain_out": 0.5139154348050211,
+            "delay_ms": 51.441230708786605,
+            "decay": 0.10004114095682083,
+            "speed": 1.3489215318608336,
+            "depth": 0.6781454254205154,
+            "_mix": 0.7082407546294796
+          }
+        },
+        {
+          "effect": "sox_echo",
+          "params": {
+            "gain_in": 0.5187742817779535,
+            "gain_out": 0.6113149009480551,
+            "delay_ms": 159.19057792846942,
+            "decay": 0.5354968632820946,
+            "_mix": 0.0004152761359564669
+          }
+        },
+        {
+          "effect": "sox_reverb",
+          "params": {
+            "reverberance": 87.6143354466411,
+            "high_freq_damping": 89.76174859436826,
+            "room_scale": 91.39668101522263,
+            "stereo_depth": 75.98662534033502,
+            "pre_delay": 49.982139188108334,
+            "wet_gain": -1.2566495917344156
+          }
+        },
+        {
+          "effect": "sox_gain",
+          "params": {
+            "gain_db": -2.483753266449831
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "sox_gain",
+          "params": {
+            "gain_db": 2.5847632390999458
+          }
+        },
+        {
+          "effect": "sox_highpass",
+          "params": {
+            "frequency": 62.0456077272725,
+            "width_q": 1.9273438516215096
+          }
+        },
+        {
+          "effect": "sox_lowpass",
+          "params": {
+            "frequency": 17753.513079517717,
+            "width_q": 1.3414943796534282
+          }
+        },
+        {
+          "effect": "am_low_shelf_filter",
+          "params": {
+            "center_freq": 141.9704102349192,
+            "gain_db": 12.126843244864968,
+            "q": 0.6967687730352503
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 92.50058816698005,
+            "gain_db": 23.274044628516535,
+            "q": 4.298158228759911
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 530.2098428021887,
+            "gain_db": -9.096423080509826,
+            "q": 2.362628949120674
+          }
+        },
+        {
+          "effect": "am_high_shelf_filter",
+          "params": {
+            "center_freq": 7100.757690743697,
+            "gain_db": 9.50536839150094,
+            "q": 0.1022490340583001
+          }
+        },
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.055744607049202435,
+            "decay_time": 0.5740814759790631,
+            "soft_knee_db": 5.93836703634994,
+            "_mix": 0.8287152421772987
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 325.7991584658406,
+            "gain_db": 21.50021521653924,
+            "q": 1.978656919353916
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 3754.5465082703054,
+            "gain_db": 16.321875290450407,
+            "q": 2.152005773545937
+          }
+        },
+        {
+          "effect": "sox_overdrive",
+          "params": {
+            "gain_db": 33.45562513632556,
+            "colour": 84.95196315507131
+          }
+        },
+        {
+          "effect": "sox_chorus",
+          "params": {
+            "gain_in": 0.5243342571116876,
+            "gain_out": 0.6818439650502456,
+            "delay_ms": 44.69763546767651,
+            "decay": 0.33726977008210524,
+            "speed": 2.167530169593938,
+            "depth": 0.77192815751099,
+            "_mix": 0.8726549418132318
+          }
+        },
+        {
+          "effect": "sox_echo",
+          "params": {
+            "gain_in": 0.6153963025087068,
+            "gain_out": 0.7035421420143244,
+            "delay_ms": 100.23864879239596,
+            "decay": 0.543548241178406,
+            "_mix": 0.9074440653054928
+          }
+        },
+        {
+          "effect": "sox_reverb",
+          "params": {
+            "reverberance": 64.53223367395577,
+            "high_freq_damping": 24.420423665071652,
+            "room_scale": 38.72337355089106,
+            "stereo_depth": 34.297075793416916,
+            "pre_delay": 20.812878938889078,
+            "wet_gain": -7.849754334658279
+          }
+        },
+        {
+          "effect": "sox_gain",
+          "params": {
+            "gain_db": -5.931682948976201
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "sox_gain",
+          "params": {
+            "gain_db": 5.2157571929083275
+          }
+        },
+        {
+          "effect": "sox_highpass",
+          "params": {
+            "frequency": 1834.2126378613489,
+            "width_q": 0.8249656038491014
+          }
+        },
+        {
+          "effect": "sox_lowpass",
+          "params": {
+            "frequency": 3448.92270517387,
+            "width_q": 1.8733117352544884
+          }
+        },
+        {
+          "effect": "am_low_shelf_filter",
+          "params": {
+            "center_freq": 50.039393700265705,
+            "gain_db": -7.313574917358125,
+            "q": 0.16139565697977443
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 190.06393095150995,
+            "gain_db": -1.881301178177175,
+            "q": 2.070350320101239
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 4433.631917318163,
+            "gain_db": 23.90613086196376,
+            "q": 2.1753830022659266
+          }
+        },
+        {
+          "effect": "am_high_shelf_filter",
+          "params": {
+            "center_freq": 895.4822894072919,
+            "gain_db": 17.94758860101897,
+            "q": 0.940641006936099
+          }
+        },
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.0010284869798626846,
+            "decay_time": 0.6215687693372802,
+            "soft_knee_db": 8.739514078494299,
+            "_mix": 0.7491667893239515
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 165.41000856476668,
+            "gain_db": 5.760295326526517,
+            "q": 4.860727902130982
+          }
+        },
+        {
+          "effect": "am_peaking_filter",
+          "params": {
+            "center_freq": 324.3447797060757,
+            "gain_db": -9.06967162030166,
+            "q": 4.027042786179125
+          }
+        },
+        {
+          "effect": "sox_overdrive",
+          "params": {
+            "gain_db": 13.015162722103097,
+            "colour": 56.659561946854296
+          }
+        },
+        {
+          "effect": "sox_chorus",
+          "params": {
+            "gain_in": 0.7881543071788577,
+            "gain_out": 0.45798825284105726,
+            "delay_ms": 59.559695249159056,
+            "decay": 0.12856017268275022,
+            "speed": 1.6285713036982197,
+            "depth": 0.5002012235548379,
+            "_mix": 0.4003417023687646
+          }
+        },
+        {
+          "effect": "sox_echo",
+          "params": {
+            "gain_in": 0.5297294678565893,
+            "gain_out": 0.5412364248170249,
+            "delay_ms": 460.5102537999305,
+            "decay": 0.2150915365511291,
+            "_mix": 0.2517046425199689
+          }
+        },
+        {
+          "effect": "sox_reverb",
+          "params": {
+            "reverberance": 40.903840454765685,
+            "high_freq_damping": 82.98204136134909,
+            "room_scale": 15.520293916148095,
+            "stereo_depth": 70.64859816238719,
+            "pre_delay": 4.300946011778239,
+            "wet_gain": -3.768339006075145
+          }
+        },
+        {
+          "effect": "sox_gain",
+          "params": {
+            "gain_db": -0.18430668860236832
+          }
+        }
+      ]
+    }
+  },
+  "orig": "Clara Berry And Wooldog - Stella",
+  "target": "Black Bloc - If You Want Success",
+  "baseline_cos": 0.5777,
+  "new_cos": 0.8945
+}

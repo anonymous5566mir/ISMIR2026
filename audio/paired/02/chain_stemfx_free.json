@@ -1,0 +1,61 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.028720000000000006,
+            "decay_time": 0.9208000000000001,
+            "soft_knee_db": 9.36
+          }
+        },
+        {
+          "effect": "ta_bandpass_biquad",
+          "params": {
+            "central_freq": 941.6623184022953,
+            "Q": 2.3449999999999998
+          }
+        },
+        {
+          "effect": "am_bit_crush",
+          "params": {
+            "bit_depth": 10.0
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "npy_lr_pan",
+          "params": {
+            "pan": -0.98
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "sox_contrast",
+          "params": {
+            "amount": 96.39999999999999
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "ta_bass_biquad",
+          "params": {
+            "gain_db": -10.8,
+            "central_freq": 154.59850578098283,
+            "Q": 0.995
+          }
+        }
+      ]
+    }
+  }
+}

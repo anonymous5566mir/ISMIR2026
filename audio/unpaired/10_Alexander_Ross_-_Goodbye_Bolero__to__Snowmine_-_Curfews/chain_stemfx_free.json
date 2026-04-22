@@ -1,0 +1,76 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "sox_bandpass",
+          "params": {
+            "frequency": 675.6313495618041,
+            "width_q": 0.635
+          }
+        },
+        {
+          "effect": "ta_contrast",
+          "params": {
+            "enhancement_amount": 90.1
+          }
+        },
+        {
+          "effect": "sox_treble",
+          "params": {
+            "gain_db": -10.08,
+            "frequency": 5879.493283318659,
+            "slope": 0.6559999999999999
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.023770000000000003,
+            "decay_time": 0.8613999999999999,
+            "soft_knee_db": 11.76
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "sox_bandreject",
+          "params": {
+            "frequency": 783.0548656198179,
+            "width_q": 2.21
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "sci_butter_bandpass",
+          "params": {
+            "order": 3.0,
+            "low_freq": 627.0449849407407,
+            "high_freq": 2759.459322922429
+          }
+        },
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.02278,
+            "decay_time": 0.0892,
+            "soft_knee_db": 1.92
+          }
+        }
+      ]
+    }
+  },
+  "orig": "Alexander Ross - Goodbye Bolero",
+  "target": "Snowmine - Curfews",
+  "baseline_cos": 0.544,
+  "new_cos": 0.8753
+}

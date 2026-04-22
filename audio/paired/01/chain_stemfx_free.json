@@ -1,0 +1,52 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "sci_butter_highpass",
+          "params": {
+            "order": 3.0,
+            "cutoff": 63.245553203367585
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "sox_chorus",
+          "params": {
+            "gain_in": 0.588,
+            "gain_out": 0.7749999999999999,
+            "delay_ms": 46.4,
+            "decay": 0.14800000000000002,
+            "speed": 0.7375,
+            "depth": 0.995
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "sci_butter_highpass",
+          "params": {
+            "order": 3.0,
+            "cutoff": 126.19146889603873
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "ta_bandpass_biquad",
+          "params": {
+            "central_freq": 783.0548656198179,
+            "Q": 1.2650000000000001
+          }
+        }
+      ]
+    }
+  }
+}

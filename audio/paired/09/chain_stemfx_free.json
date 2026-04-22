@@ -1,0 +1,75 @@
+{
+  "stems": {
+    "vocals": {
+      "fx_chain": [
+        {
+          "effect": "sci_butter_highpass",
+          "params": {
+            "order": 3.0,
+            "cutoff": 63.245553203367585
+          }
+        },
+        {
+          "effect": "sox_overdrive",
+          "params": {
+            "gain_db": 13.75,
+            "colour": 2.0
+          }
+        }
+      ]
+    },
+    "bass": {
+      "fx_chain": [
+        {
+          "effect": "sci_bessel_lowpass",
+          "params": {
+            "order": 5.0,
+            "cutoff": 1682.4766704225242
+          }
+        },
+        {
+          "effect": "sox_phaser",
+          "params": {
+            "gain_in": 0.888,
+            "gain_out": 0.72,
+            "delay": 3.08,
+            "decay": 0.32000000000000006,
+            "speed": 1.088
+          }
+        }
+      ]
+    },
+    "drums": {
+      "fx_chain": [
+        {
+          "effect": "sci_butter_bandpass",
+          "params": {
+            "order": 2.0,
+            "low_freq": 246.5449414608725,
+            "high_freq": 5512.912486152181
+          }
+        },
+        {
+          "effect": "sox_compand",
+          "params": {
+            "attack_time": 0.05743,
+            "decay_time": 0.9208000000000001,
+            "soft_knee_db": 10.32
+          }
+        }
+      ]
+    },
+    "other": {
+      "fx_chain": [
+        {
+          "effect": "sci_butter_bandpass",
+          "params": {
+            "order": 2.0,
+            "low_freq": 476.9510376875236,
+            "high_freq": 7132.081529082355
+          }
+        }
+      ]
+    }
+  }
+}
