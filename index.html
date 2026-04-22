@@ -78,11 +78,10 @@
   .no-fx { font-size: 0.72em; color: #999; font-style: italic; }
 
   /* Tooltip */
-  .fx-tooltip { display: none; position: absolute; left: 0; top: 100%; z-index: 10;
+  .fx-tooltip { display: none; position: fixed; z-index: 1000;
                 background: #222; color: #eee; padding: 6px 10px; border-radius: 4px;
                 font-size: 0.82em; font-weight: 400; white-space: pre; min-width: 180px;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.3); pointer-events: none; }
-  .fx-block:hover .fx-tooltip { display: block; }
 
   .footer { margin-top: 36px; padding-top: 12px; border-top: 1px solid #ddd; font-size: 0.82em; color: #888; }
 </style>
@@ -93,7 +92,7 @@
 <p class="subtitle">Supplementary audio examples</p>
 <div class="note">
   <b>Headphones recommended.</b> All audio loudness-normalized to &minus;23 LUFS.
-  Click <b>Show Chain</b> to inspect the predicted signal chain for each method.
+  Click <b>Show FX Chain</b> to inspect the predicted signal chain for each method.
 </div>
 
 <h2>1. Paired Style Transfer (Same Content, Different Mix)</h2>
@@ -117,6 +116,32 @@
 <div class="footer">Submitted to ISMIR 2026. Audio samples for review purposes only.</div>
 
 <script>
+// Tooltip positioning: show above cursor, clamped to viewport
+document.addEventListener("mouseenter", function(e) {
+  const block = e.target.closest(".fx-block");
+  if (!block) return;
+  const tip = block.querySelector(".fx-tooltip");
+  if (!tip) return;
+  tip.style.display = "block";
+  const rect = block.getBoundingClientRect();
+  // Position above the block
+  let top = rect.top - tip.offsetHeight - 6;
+  let left = rect.left;
+  // Clamp to viewport
+  if (top < 4) top = rect.bottom + 6; // flip below if no room above
+  if (left + tip.offsetWidth > window.innerWidth - 8) left = window.innerWidth - tip.offsetWidth - 8;
+  if (left < 4) left = 4;
+  tip.style.top = top + "px";
+  tip.style.left = left + "px";
+}, true);
+
+document.addEventListener("mouseleave", function(e) {
+  const block = e.target.closest(".fx-block");
+  if (!block) return;
+  const tip = block.querySelector(".fx-tooltip");
+  if (tip) tip.style.display = "none";
+}, true);
+
 const N_PAIRED = 10;
 const METHODS = [
   {key: "stemfx_free", label: "StemFX free", chainFile: "chain_stemfx_free.json"},
@@ -286,7 +311,7 @@ for (let i = 1; i <= N_PAIRED; i++) {
   const panelId = "chain-paired-" + id;
   pg.innerHTML += '<div class="card">' +
     '<div class="card-header"><span class="card-title">Example ' + i + '</span>' +
-    '<button class="chain-btn" onclick="togglePanel(\'' + panelId + '\')">Show Chain</button></div>' +
+    '<button class="chain-btn" onclick="togglePanel(\'' + panelId + '\')">Show FX Chain</button></div>' +
     audioTable(base, pairedAudio) +
     makeChainPanel(panelId, base) +
     '</div>';
@@ -305,13 +330,13 @@ for (const p of unpairedPairs) {
     '<div class="directions">' +
     '<div class="dir-block">' +
       '<div class="dir-header"><span class="dir-label">A &rarr; B</span>' +
-      '<button class="chain-btn" onclick="togglePanel(\'' + fpId + '\')">Show Chain</button></div>' +
+      '<button class="chain-btn" onclick="togglePanel(\'' + fpId + '\')">Show FX Chain</button></div>' +
       audioTable(fBase, unpairedAudio) +
       makeChainPanel(fpId, fBase) +
     '</div>' +
     '<div class="dir-block">' +
       '<div class="dir-header"><span class="dir-label">B &rarr; A</span>' +
-      '<button class="chain-btn" onclick="togglePanel(\'' + ipId + '\')">Show Chain</button></div>' +
+      '<button class="chain-btn" onclick="togglePanel(\'' + ipId + '\')">Show FX Chain</button></div>' +
       audioTable(iBase, unpairedAudio) +
       makeChainPanel(ipId, iBase) +
     '</div>' +
