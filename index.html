@@ -99,7 +99,7 @@
 <div class="note">
   <b>Reference</b> = target mix &nbsp;|&nbsp;
   <b>Original</b> = input &nbsp;|&nbsp;
-  <b>StemFX free</b> = ours &nbsp;|&nbsp;
+  <b>StemFX</b> = ours &nbsp;|&nbsp;
   <b>StemFX forced</b> = ours, fixed chain &nbsp;|&nbsp;
   <b>ITO + AFx-Rep</b> / <b>ITO + BSFiLM</b> = CMA-ES baselines
 </div>
@@ -144,7 +144,7 @@ document.addEventListener("mouseleave", function(e) {
 
 const N_PAIRED = 10;
 const METHODS = [
-  {key: "stemfx_free", label: "StemFX free", chainFile: "chain_stemfx_free.json"},
+  {key: "stemfx_free", label: "StemFX", chainFile: "chain_stemfx_free.json"},
   {key: "stemfx_forced", label: "StemFX forced", chainFile: "chain_stemfx_forced.json"},
   {key: "ito_afxrep", label: "ITO + AFx-Rep", chainFile: "chain_ito_afxrep.json"},
   {key: "ito_bsfilm", label: "ITO + BSFiLM", chainFile: "chain_ito_bsfilm.json"},
@@ -162,7 +162,7 @@ const FX_CATEGORIES = {};
 const pairedAudio = [
   ["target.mp3", "Reference"],
   ["original.mp3", "Original"],
-  ["stemfx_free.mp3", "StemFX free"],
+  ["stemfx_free.mp3", "StemFX"],
   ["stemfx_forced.mp3", "StemFX forced"],
   ["ito_afxrep.mp3", "ITO + AFx-Rep"],
   ["ito_bsfilm.mp3", "ITO + BSFiLM"],
