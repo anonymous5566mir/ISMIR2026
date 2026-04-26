@@ -97,8 +97,8 @@
 
 <h2>1. Paired Style Transfer (Same Content, Different Mix)</h2>
 <div class="note">
-  <b>Reference</b> = target mix &nbsp;|&nbsp;
-  <b>Original</b> = input &nbsp;|&nbsp;
+  <b>Target</b> = target mix &nbsp;|&nbsp;
+  <b>FX-normalized</b> = input &nbsp;|&nbsp;
   <b>StemFX</b> = ours &nbsp;|&nbsp;
   <b>StemFX forced</b> = ours, fixed chain &nbsp;|&nbsp;
   <b>ITO + AFx-Rep</b> / <b>ITO + BSFiLM</b> = CMA-ES baselines
@@ -160,8 +160,8 @@ const FX_CATEGORIES = {};
 // We'll populate from loaded chain data dynamically; fallback to "other"
 
 const pairedAudio = [
-  ["target.mp3", "Reference"],
-  ["original.mp3", "Original"],
+  ["target.mp3", "Target"],
+  ["original.mp3", "FX-normalized"],
   ["stemfx_free.mp3", "StemFX"],
   ["stemfx_forced.mp3", "StemFX forced"],
   ["ito_afxrep.mp3", "ITO + AFx-Rep"],
